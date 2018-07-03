@@ -10,3 +10,14 @@
 	margin: 0 auto;
 	max-width: 600px;
 }
+
+#stripe {
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+}
+
+.selected {
+	background-color: blue;
+	color: white;
+}

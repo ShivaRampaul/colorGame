@@ -1,13 +1,51 @@
+//random generated rgb color array
+var hard = true;
+var easy = false;
+var colorArr = randomColors(6);
+//random chosen correct answer/color
+var ans = colorArr[pickColor()];
+var h1 = document.querySelector("h1");
 var message = document.getElementById("message");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
 var newGameBtn = document.querySelector("#newBtn");
 var squares = document.getElementsByClassName("square");
 var colorDisplay = document.querySelector("#colorDisplay");
+var easySquares = document.querySelectorAll(".easy");
 
-var colorArr = randomColors(6);
-
-//the chosen correct answer/color
-var ans = colorArr[pickColor()];
 colorDisplay.innerHTML = ans;
+
+//button logic
+newGameBtn.addEventListener("click", function() {
+	if(easy) {
+		reset(3);
+	}
+	else {
+		reset(6);
+	}
+});
+
+easyBtn.addEventListener("click", function() {
+	easy = true;
+	hard = false;
+	this.classList.add("selected");
+	hardBtn.classList.remove("selected");
+	reset(3);
+	for(var i = 0; i < 3; i++){
+		easySquares[i].style.display = "none";
+	}
+});
+
+hardBtn.addEventListener("click", function() {
+	hard = true;
+	easy = false;
+	this.classList.add("selected");
+	easyBtn.classList.remove("selected");
+	reset(6);
+	for(var i = 0; i < 3; i++){
+		easySquares[i].style.display = "block";
+	}
+});
 
 for(var i = 0; i < squares.length; i++) {
 	//assigning colors to squares
@@ -33,6 +71,9 @@ function changeColors(color) {
 
 	//change new game button to play again?
 	newGameBtn.innerHTML = "Play Again?";
+
+	//change h1 background to correct ans color
+	h1.style.backgroundColor = color;
 
 	for(var j = 0; j < squares.length; j++) {
 		squares[j].style.backgroundColor = color;
@@ -63,4 +104,21 @@ function colorGen() {
 	b = Math.floor(Math.random() * 255 + 1);
 	//return an rgb string
 	return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+function reset(num) {
+	//generate new colors
+	colorArr = randomColors(num);
+	//choose a new color
+	ans = colorArr[pickColor()];
+	//display corect answer
+	colorDisplay.innerHTML = ans;
+	//change all the squares to reflect the new generated colors array
+	for(var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = colorArr[i];
+	}		
+	//change h1 background color back to white
+	h1.style.backgroundColor = "#fff";
+	message.innerHTML = "";
+	newGameBtn.innerHTML = "New Colors";
 }

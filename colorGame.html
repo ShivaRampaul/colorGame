@@ -7,20 +7,22 @@
 <body>
 	<h1>The Great <span id="colorDisplay">RGB</span> Color Game!</h1>
 
-	<div>
-		<button class="btn" id="newBtn">New Game</button>
+	<div id="stripe">
+		<button class="btn" id="newBtn">New Colors</button>
 		<span id="message"></span>
-		<button class="btn" id="easyBtn">Easy</button>
-		<button class="btn" id="hardBtn">Hard</button>
+		<div id="difficultyBtns">
+			<button class="btn" id="easyBtn">Easy</button>
+			<button class="btn selected" id="hardBtn">Hard</button>
+		</div>
 	</div>
 
 	<div id="container">
 		<div class="square"></div>
 		<div class="square"></div>
 		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
+		<div class="square easy"></div>
+		<div class="square easy"></div>
+		<div class="square easy"></div>
 	</div>
 
 	<script type="text/javascript" src="colorGame.js"></script>
