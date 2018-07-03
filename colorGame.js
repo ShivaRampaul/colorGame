@@ -58,7 +58,7 @@ for(var i = 0; i < squares.length; i++) {
 		}
 		else {
 			//change background color to match body color
-			this.style.backgroundColor = "rgb(255, 255, 255)";
+			this.style.backgroundColor = "antiquewhite";
 			//try again message
 			message.innerHTML = "Try again!";
 		}
@@ -117,7 +117,7 @@ function reset(num) {
 	for(var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = colorArr[i];
 	}		
-	//change h1 background color back to white
+	//change h1 background color back to steelBlue
 	h1.style.backgroundColor = "steelBlue";
 	message.innerHTML = "";
 	newGameBtn.innerHTML = "New Colors";
