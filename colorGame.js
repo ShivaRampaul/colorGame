@@ -118,7 +118,7 @@ function reset(num) {
 		squares[i].style.backgroundColor = colorArr[i];
 	}		
 	//change h1 background color back to white
-	h1.style.backgroundColor = "#fff";
+	h1.style.backgroundColor = "steelBlue";
 	message.innerHTML = "";
 	newGameBtn.innerHTML = "New Colors";
 }
