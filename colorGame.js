@@ -13,7 +13,7 @@ var squares = document.getElementsByClassName("square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var easySquares = document.querySelectorAll(".easy");
 
-colorDisplay.innerHTML = ans;
+init();
 
 //button logic
 newGameBtn.addEventListener("click", function() {
@@ -47,22 +47,25 @@ hardBtn.addEventListener("click", function() {
 	}
 });
 
-for(var i = 0; i < squares.length; i++) {
-	//assigning colors to squares
-	squares[i].style.backgroundColor = colorArr[i];
-	//click event for all squares
-	squares[i].addEventListener("click", function() {
-		var clickedColor = this.style.backgroundColor;
-		if(clickedColor === ans) {
-			changeColors(clickedColor);
-		}
-		else {
-			//change background color to match body color
-			this.style.backgroundColor = "antiquewhite";
-			//try again message
-			message.innerHTML = "Try again!";
-		}
-	});
+function init() {
+	colorDisplay.innerHTML = ans;
+	for(var i = 0; i < squares.length; i++) {
+		//assigning colors to squares
+		squares[i].style.backgroundColor = colorArr[i];
+		//click event for all squares
+		squares[i].addEventListener("click", function() {
+			var clickedColor = this.style.backgroundColor;
+			if(clickedColor === ans) {
+				changeColors(clickedColor);
+			}
+			else {
+				//change background color to match body color
+				this.style.backgroundColor = "antiquewhite";
+				//try again message
+				message.innerHTML = "Try again!";
+			}
+		});
+	}
 }
 
 function changeColors(color) {

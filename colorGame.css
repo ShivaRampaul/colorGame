@@ -45,7 +45,7 @@ h1 {
 	font-size: 200%;
 }
 
-button {
+button, #message {
 	border: none;
 	background: none;
 	text-transform: uppercase;
